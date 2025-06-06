@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import fondo from '../assets/fondo.jpg'
+
 
 const Personajes = () => {
   const [Personajes, setPersonajes] = useState([]);
