@@ -41,7 +41,7 @@ const cerrarSesion = () => {
                 </>
               )}
 
-              </Nav>
+              </Nav>  
 
               <Nav>
                 {!isAuth ? (
