@@ -12,6 +12,7 @@ import Login from './pages/Loguin';
 import Administracion from './pages/Administracion';
 import RutaProtegida from './components/RutaProtegida';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
 
 function App() {
 
@@ -37,7 +38,9 @@ function App() {
               } />
 
           </Routes>
-          
+              <UserProvider>
+                
+              </UserProvider>
         
         <Footer/>
         </div>
