@@ -7,7 +7,7 @@ const UserCard = () => {
 
   if (!user) {
     return (
-      <div className="d-flex justify-content-center my-5">
+      <div className="d-flex justify-content-center mt-5">
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Cargando...</span>
         </Spinner>
@@ -18,7 +18,7 @@ const UserCard = () => {
   return (
     <div className="d-flex justify-content-center mt-4">
       <Card style={{ width: "20rem" }} className="shadow border-0">
-        <Card.Img variant="top" src={user.picture} />
+        <Card.Img variant="top" src={user.picture.large} />
         <Card.Body>
           <Card.Title>
             {user.name.first} {user.name.last}

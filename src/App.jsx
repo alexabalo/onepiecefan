@@ -1,5 +1,5 @@
 
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar';
 import Home from './pages/Home';
 import Personajes from './pages/Personajes';
 import Frutas from './pages/Frutas'; 
@@ -13,6 +13,9 @@ import Administracion from './pages/Administracion';
 import RutaProtegida from './components/RutaProtegida';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
+import CargarBotonUser from './components/CargarBotonUser';
+import { Container } from 'react-bootstrap';
+import UserCard from './components/UserCard';
 
 function App() {
 
@@ -39,7 +42,11 @@ function App() {
 
           </Routes>
               <UserProvider>
-                
+                <Container className='text-center mt-5'>
+                    <h1>Usuario aleatorio</h1>
+                    <UserCard/>
+                    <CargarBotonUser/>
+                </Container>
               </UserProvider>
         
         <Footer/>
