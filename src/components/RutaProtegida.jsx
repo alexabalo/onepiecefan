@@ -1,7 +1,11 @@
 import {Navigate} from 'react-router-dom';
+import {useAuth} from './AuthContext';
 
-export default function RuteProtegida({ children}) {
+export default function RutaProtegida({ children}) 
+{
+    const {token} = useAuth();
+    return token ? children : <Navigate to='/login' />
 
-    const auth = localStorage.getItem('auth') === 'true';
-    return auth ? children : <Navigate to='/login' />
-}
+    //const auth = localStorage.getItem('auth') === 'true';
+    //return auth ? children : <Navigate to='/login' />
+} 
