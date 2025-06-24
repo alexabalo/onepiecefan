@@ -24,7 +24,7 @@ export default function Login()
 
   
   return (
-    <Container className='d-flex justify-content-center aligne-items-center vh-100'>
+    <Container className='d-flex justify-content-center aligne-items-center vh-50'>
       <Card style={{width: '24rem'}}>
         <Card.Body>
           <Card.Title className='mb-4 text-center'>Login</Card.Title>

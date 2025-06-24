@@ -45,13 +45,14 @@ function App() {
             />
           </Routes>
 
-          <UserProvider>
+         {/* <UserProvider>
             <Container className="text-center mt-5">
               <h1>Usuario aleatorio</h1>
               <UserCard />
               <CargarBotonUser />
             </Container>
           </UserProvider>
+          */} 
 
           <Footer />
         </div>

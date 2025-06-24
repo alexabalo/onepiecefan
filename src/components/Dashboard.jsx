@@ -1,6 +1,7 @@
 import {useAuth} from './AuthContext';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import { Container, Button, Card, Navbar, Nav } from 'react-bootstrap';
+import Logo from '../assets/OnePiece.png';
 
 export default function Dashboard() {
     const {user, logout} = useAuth();
@@ -12,11 +13,11 @@ export default function Dashboard() {
 
      return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar variant='dark' expand='lg' className='position-absolute w-100 z-3 bg-transparent'>
         <Container>
-          <Navbar.Brand href="#">Tienda Noemi</Navbar.Brand>
+          <Navbar.Brand as={Link} to='/'><img src={Logo} alt='logo' style={{width: '100px', height: 'auto'}}></img></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse className="justify-content-end">
+          <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className="me-auto">
               <Nav.Link href="#">Inicio</Nav.Link>
               <Nav.Link href="#">Perfil</Nav.Link>
