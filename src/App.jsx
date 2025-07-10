@@ -6,6 +6,9 @@ import Frutas from './pages/Frutas';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
+{/*importando carrito*/}
+import Carrito from './pages/Carrito'
+
 /*prueba de los links*/
 
 import Login from './pages/Login';
@@ -43,7 +46,11 @@ function App() {
                 </RutaProtegida>
               }
             />
+
+            <Route path='/carrito' element={<Carrito/>} />
           </Routes>
+
+          
 
          {/* <UserProvider>
             <Container className="text-center mt-5">

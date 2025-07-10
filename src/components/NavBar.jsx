@@ -4,8 +4,13 @@ import {Navbar,Nav,Container, Button} from 'react-bootstrap';
 import {Link, useNavigate, } from 'react-router-dom';
 import {useAuth} from './AuthContext';
 
+/*Cart*/
+import {FaShoppingCart} from 'react-icons/fa';
+import {useCart} from './CartContext';
+
 const Navegacion = () => {
   const {user, logout} = useAuth();
+  const {cartItems} = useCart();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -27,6 +32,18 @@ const Navegacion = () => {
               <Nav.Link as={Link} to="/" className='btn btn-warning rounded-pill text-danger'>Home</Nav.Link>
               <Nav.Link as={Link} to="/Personajes" className='btn btn-warning rounded-pill text-danger'>Personajes</Nav.Link>
               <Nav.Link as={Link} to="/Frutas" className='btn btn-warning rounded-pill text-danger'>Frutas</Nav.Link>
+
+              {/*Carrito*/}
+              <Nav.Link as={Link} to='/carrito' className='postion-relative text-white'>
+              <FaShoppingCart size={24} />
+              {cartItems.length > 0 && (
+                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+                  {cartItems.length}
+                </span>
+              )}
+              
+              </Nav.Link>
+
               {!user && (
                 <Nav.Link as={Link} to='Login' className='btn btn-warning rounded-pill text-danger'>Login</Nav.Link>
               )}
@@ -38,6 +55,9 @@ const Navegacion = () => {
                 <Navbar.Text className='text-white me-3'>
                   Usuario: <strong>{user}</strong>
                   </Navbar.Text>
+
+                  
+
                   <Button variant='outline-light' onClick={handleLogout}>Cerrar Sesion</Button>
                 
                 </>

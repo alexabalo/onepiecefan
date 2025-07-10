@@ -1,9 +1,23 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
+{/*esto es la conexion al carrito*/}
+import { useCart } from '../components/CartContext';
+import { useAuth } from '../components/AuthContext';
+import { useNavigate, useLocation } from "react-router-dom"; // esto es para poder volver atras
+
+
+
+
+
+
 const Frutas = () => {
   const [Fruta, setFruta] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {addToCart} = useCart();
+  const {user} = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     fetch("https://api.api-onepiece.com/v2/fruits/en")
@@ -17,6 +31,22 @@ const Frutas = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleAgregarAlCarrito = (char) => {
+    if(!user) {
+      //lo redirigimos al login para pasarle la info de donde vino
+      navigate('/login', {state: {from: location.pathname}});
+      return;
+    }
+        //esto es para saber si esta logeado
+        addToCart({
+          id: char.id,
+          nombre: char.name,
+          tipo:char.type,
+          imagen: char.filename,
+        });
+      };
+  
 
   return (
     <Container className="mt-4">
@@ -45,7 +75,7 @@ const Frutas = () => {
                 <Card.Text>
                   <strong>Tipo:{char.type}</strong>
                 </Card.Text>
-                <Button variant="primary">Comprar Fruta</Button>
+                <Button variant="primary" onClick={() => handleAgregarAlCarrito(char)}>Comprar Frutas</Button>
               </Card.Body>
             </Card>
           </Col>

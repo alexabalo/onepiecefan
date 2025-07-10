@@ -1,26 +1,61 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
+import ProductForm from './ProductoForm';
+import ProductoForm from './ListadeProductos';
 
 function Productos(){
     const [productos, setProductos] = useState([]);
-    const [productoAEditar, setProductoAEditar] = useState([null]);
+    const [productoAEditar, setProductoAEditar] = useState(null);
     const [contadorId, setContadorId] = useState(1);
 
     const agregarProducto=(producto)=> 
         {
-            const nuevoProducto = {...producto, id: constadorId};
-            setProductos([...productos, nuevosProductos]);
+            const nuevoProducto = {...producto, id: contadorId};
+            setProductos([...productos, nuevoProducto]);
             setContadorId(contadorId + 1);
 
+            };
+
+            const actualizarProducto = (productoActualizado) => 
+            {
+                setProductos(productos.map(p => (p.id === productoActualizado.id ? productoActualizado : p)));
+                 setProductoAEditar(null);
             }
 
-        };
+            const borrarProducto = (id) => 
+            {
+                setProductos(productos.filter(p => p.id !== id));
+            };
 
-    return(
-        <div>
+            const editarProducto = (producto) => 
+            {
+                setProductoAEditar(producto);
 
-        </div>
-    )
+            };
+
+                return(
+                    <Container className="my-4">
+                        <h2>Gestion de Productos</h2>
+
+                        <ProductForm onSubmit={productoAEditar ? actualizarProducto : agregarProducto}
+                        productoAEditar =  {productoAEditar}
+                        onCancel={() => setProductoAEditar(null)}/>
+
+                        <hr />
+                        <ListaProductos
+                        productos={productos}
+                        onEdit={editarProducto}
+                        onDelite={borrarProducto} />
+
+
+
+                    </Container>
+                )
     
 }
+
+
+
+
 
 export default Productos;
