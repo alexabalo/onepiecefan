@@ -40,6 +40,7 @@ const Frutas = () => {
     }
         //esto es para saber si esta logeado
         addToCart({
+          cartItemId: Date.now(),
           id: char.id,
           nombre: char.name,
           tipo:char.type,

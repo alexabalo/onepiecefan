@@ -1,6 +1,20 @@
-#root {
 
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+{/* color de fondo del nav*/}
+.custom-navbar{
+  background-color: #323C45;
+  height: 3.5rem;
 }
+.nav-btn-custom{
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+
+  border: none;
+
+}
+
+.nav-btn-custom:hover{
+  color: #f14744;
+}
+
+

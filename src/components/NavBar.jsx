@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '../assets/OnePiece.png';
 import {Navbar,Nav,Container, Button} from 'react-bootstrap';
@@ -22,16 +23,16 @@ const Navegacion = () => {
 
     return (
       
-      <Navbar  variant="dark" expand="lg"  className="position-absolute w-100 z-3 bg-transparent">
+      <Navbar  variant="dark" expand="lg"  className="position-absolute w-100 z-3 custom-navbar">
         <Container>
           <Navbar.Brand as={Link} to="/"><img src={Logo} alt='Logo' style={{ width: '100px', height: 'auto'}}></img></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
 
             <Nav className="ms-auto gap-2">
-              <Nav.Link as={Link} to="/" className='btn btn-warning rounded-pill text-danger'>Home</Nav.Link>
-              <Nav.Link as={Link} to="/Personajes" className='btn btn-warning rounded-pill text-danger'>Personajes</Nav.Link>
-              <Nav.Link as={Link} to="/Frutas" className='btn btn-warning rounded-pill text-danger'>Frutas</Nav.Link>
+              <Nav.Link as={Link} to="/" className='nav-btn-custom'>Home</Nav.Link>
+              <Nav.Link as={Link} to="/Personajes" className='nav-btn-custom'>Personajes</Nav.Link>
+              <Nav.Link as={Link} to="/Frutas" className='nav-btn-custom'>Frutas</Nav.Link>
 
               {/*Carrito*/}
               <Nav.Link as={Link} to='/carrito' className='postion-relative text-white'>
@@ -45,12 +46,12 @@ const Navegacion = () => {
               </Nav.Link>
 
               {!user && (
-                <Nav.Link as={Link} to='Login' className='btn btn-warning rounded-pill text-danger'>Login</Nav.Link>
+                <Nav.Link as={Link} to='Login' className='nav-btn-custom'>Login</Nav.Link>
               )}
               {user && (
                 <> 
 
-                <Nav.Link as={Link} to='/Dashboard' className='btn btn-warning rounded-pill text-danger'>Inicio</Nav.Link>
+                <Nav.Link as={Link} to='/Dashboard' className='nav-btn-custom'>Inicio</Nav.Link>
                 <Nav.Link as={Link} to='/Perfil' className='btn btn-warning rounded-pill text-danger'>Perfil</Nav.Link>
                 <Navbar.Text className='text-white me-3'>
                   Usuario: <strong>{user}</strong>
